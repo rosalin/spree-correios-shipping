@@ -8,7 +8,7 @@ class Shipping::Base < Calculator
     begin
       self.register 
     rescue Exception => e
-      $stderr.puts "Error registering calculator #{c_model}"
+      $stderr.puts "Error registering calculator #{self}"
     end   
   end
 
