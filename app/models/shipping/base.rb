@@ -5,8 +5,11 @@ class Shipping::Base < Calculator
   preference :default_weight, :float, :default => 1
 
   def self.register
-    super
-    ShippingMethod.register_calculator(self)
+    begin
+      self.register 
+    rescue Exception => e
+      $stderr.puts "Error registering calculator #{c_model}"
+    end   
   end
 
   def compute(object)
