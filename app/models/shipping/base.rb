@@ -3,14 +3,8 @@ require 'correios-frete'
 class Shipping::Base < Calculator
   preference :zipcode, :string
   preference :default_weight, :float, :default => 1
-
-  def self.register
-    begin
-      self.register 
-    rescue Exception => e
-      $stderr.puts "Error registering calculator #{self}"
-    end   
-  end
+  
+ 
 
   def compute(object)
     pedido = encontra_pedido(object)
